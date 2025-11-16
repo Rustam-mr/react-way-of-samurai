@@ -1,0 +1,27 @@
+<script>
+    var a = {
+        name: 'it-kamasutra.com',
+        protocol: 'https',
+        maxStudentsCount: 10,
+        isOnline: true,
+        students: ['ivan', 'andrey', 'farid'],
+        classroom: {
+            teacher: {
+                name: 'wew',
+                age: 18
+            }
+        }
+    }
+
+    var b = a
+
+    var b = {...a};
+    b.classroom = {...a.classroom};
+    b.classroom.teacher = {...a.classroom.teacher};
+    b.students = {...a.students};
+
+    b.name = 'uibi';
+    b.classroom.teacher.name = 'Dmitriy';
+    console.log(a === b)
+
+</script>

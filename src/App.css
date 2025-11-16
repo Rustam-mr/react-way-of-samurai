@@ -3,6 +3,7 @@ ul {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -12,29 +13,24 @@ a {
   margin: 0 auto;
   grid-template-areas: 
   "h h"
-  "nav content";
+  "nav c";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
 }
 
-.header-logo {
-  width: 60px;
-  height: 60px;
+.app-wrapper-content {
+  grid-area: c;
+  background-color: cornflowerblue;
 }
 
-.header {
-  grid-area: h;
-  background-color: greenyellow;
+button {
+  cursor: pointer;
 }
 
-.nav {
-  grid-area: nav;
-  background-color: burlywood;
-}
 
-.content {
-  grid-area: content;
-  background-color: aqua;
-}
+
+
+
+
 
 
