@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/react-way-of-samurai/static/css/main.e75c2155.css",
-    "main.js": "/react-way-of-samurai/static/js/main.cdc3340d.js",
+    "main.js": "/react-way-of-samurai/static/js/main.0b653fa2.js",
     "static/css/649.bcc061ca.chunk.css": "/react-way-of-samurai/static/css/649.bcc061ca.chunk.css",
     "static/js/649.2cb2de1a.chunk.js": "/react-way-of-samurai/static/js/649.2cb2de1a.chunk.js",
-    "static/js/297.6fbdfc37.chunk.js": "/react-way-of-samurai/static/js/297.6fbdfc37.chunk.js",
+    "static/js/814.af9a0b23.chunk.js": "/react-way-of-samurai/static/js/814.af9a0b23.chunk.js",
     "static/css/744.41310abb.chunk.css": "/react-way-of-samurai/static/css/744.41310abb.chunk.css",
     "static/js/744.1765d348.chunk.js": "/react-way-of-samurai/static/js/744.1765d348.chunk.js",
     "static/media/avatar.png": "/react-way-of-samurai/static/media/avatar.6712e2452d7392fde7d7.png",
     "static/media/motion-blur-2.svg": "/react-way-of-samurai/static/media/motion-blur-2.11ae991a8b41e702bf570bff65eaeaca.svg",
     "index.html": "/react-way-of-samurai/index.html",
     "main.e75c2155.css.map": "/react-way-of-samurai/static/css/main.e75c2155.css.map",
-    "main.cdc3340d.js.map": "/react-way-of-samurai/static/js/main.cdc3340d.js.map",
+    "main.0b653fa2.js.map": "/react-way-of-samurai/static/js/main.0b653fa2.js.map",
     "649.bcc061ca.chunk.css.map": "/react-way-of-samurai/static/css/649.bcc061ca.chunk.css.map",
     "649.2cb2de1a.chunk.js.map": "/react-way-of-samurai/static/js/649.2cb2de1a.chunk.js.map",
-    "297.6fbdfc37.chunk.js.map": "/react-way-of-samurai/static/js/297.6fbdfc37.chunk.js.map",
+    "814.af9a0b23.chunk.js.map": "/react-way-of-samurai/static/js/814.af9a0b23.chunk.js.map",
     "744.41310abb.chunk.css.map": "/react-way-of-samurai/static/css/744.41310abb.chunk.css.map",
     "744.1765d348.chunk.js.map": "/react-way-of-samurai/static/js/744.1765d348.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e75c2155.css",
-    "static/js/main.cdc3340d.js"
+    "static/js/main.0b653fa2.js"
   ]
 }
