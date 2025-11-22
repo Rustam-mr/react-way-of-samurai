@@ -7,7 +7,7 @@ const AddMessageForm = ({ onSubmit }) => {
     // Деструктурируем register для использования с forwardRef в Textarea
     // Нам все еще нужны errors и touchedFields для логики отключения кнопки, 
     // даже если мы не показываем их на экране
-    const { register, handleSubmit, formState: { isValid, touchedFields } } = useForm({
+    const { register, handleSubmit, formState: { isValid } } = useForm({
         mode: 'onChange' // Валидация при каждом изменении, чтобы isValid обновлялся
     });
 
@@ -47,7 +47,7 @@ const AddMessageForm = ({ onSubmit }) => {
                     type="submit" 
                     // Класс добавлен: s.sendButton
                     className={s.sendButton} 
-                    disabled={!isValid || !touchedFields.newMessageBody}
+                    disabled={!isValid }
                 >
                     Отправить
                 </button>
