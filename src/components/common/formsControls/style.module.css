@@ -1,19 +1,51 @@
-.formControl.error input,
-.formControl.error textarea {
-    border: 3px solid red;
+/* Базовый стиль для всех инпутов */
+.formControl input[type="text"],
+.formControl input[type="email"],
+.formControl input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Важно для ширины 100% с паддингом */
+    font-size: 14px;
 }
 
+/* Стиль для инпута с ошибкой */
+.formControl.error input {
+    border-color: #e74c3c; /* Красный цвет границы при ошибке */
+    background-color: #fef5f5;
+}
+
+/* Сообщение об ошибке под полем (используется внутри Input компонента, если он правильно реализован) */
 .formControl.error span {
-    color: red;
+    color: #e74c3c;
+    font-size: 12px;
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 10px;
 }
 
+/* Общий стиль для блока сводной ошибки формы (если есть ошибка логина с сервера) */
 .formSummaryError {
-    border: 2px solid red;
-    padding: 5px;
-    color: red;
+    border: 1px solid #e74c3c;
+    padding: 10px;
+    background-color: #fef5f5;
+    color: #e74c3c;
+    border-radius: 4px;
+    margin-bottom: 15px;
 }
 
+/* Стиль для чекбокса */
 .checkbox {
     display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
 }
 

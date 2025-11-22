@@ -1,27 +1,57 @@
 import { NavLink } from "react-router-dom";
 import s from "./style.module.css";
+// Импорт иконок из React Icons (пример)
+import { 
+    FaUser, 
+    FaEnvelope, 
+    FaUsers, 
+    FaNewspaper, 
+    FaMusic, 
+    FaCog 
+} from 'react-icons/fa';
 
 const Navbar = () => {
+    // Вспомогательная функция для определения активного класса
+    const getNavLinkClass = ({ isActive }) => isActive ? s.active : '';
+
     return (
-        <nav className={s.nav}>
+      <nav className={s.nav}>
         <ul className={s.list}>
           <li className={s.item}>
-            <NavLink to='/profile' className={({isActive}) => isActive ? s.active : ''}>Profile</NavLink>
-          </li>
-          <li className={`${s.item} ${s.active}`}>
-            <NavLink to='/dialogs' className={({isActive}) => isActive ? s.active : ''}>Messages</NavLink>
-          </li>
-          <li className={`${s.item} ${s.active}`}>
-            <NavLink to='/users' className={({isActive}) => isActive ? s.active : ''}>Users</NavLink>
+            <NavLink to='/profile' className={getNavLinkClass}>
+                <FaUser className={s.icon} /> {/* Иконка */}
+                Profile
+            </NavLink>
           </li>
           <li className={s.item}>
-            <NavLink to='/news' className={({isActive}) => isActive ? s.active : ''}>News</NavLink>
+            <NavLink to='/dialogs' className={getNavLinkClass}>
+                <FaEnvelope className={s.icon} /> {/* Иконка */}
+                Messages
+            </NavLink>
           </li>
           <li className={s.item}>
-            <NavLink to='/music' className={({isActive}) => isActive ? s.active : ''}>Music</NavLink>
+            <NavLink to='/users' className={getNavLinkClass}>
+                <FaUsers className={s.icon} /> {/* Иконка */}
+                Users
+            </NavLink>
           </li>
           <li className={s.item}>
-            <NavLink to='/settings' className={({isActive}) => isActive ? s.active : ''}>Settings</NavLink>
+            <NavLink to='/news' className={getNavLinkClass}>
+                <FaNewspaper className={s.icon} /> {/* Иконка */}
+                News
+            </NavLink>
+          </li>
+          <li className={s.item}>
+            <NavLink to='/music' className={getNavLinkClass}>
+                <FaMusic className={s.icon} /> {/* Иконка */}
+                Music
+            </NavLink>
+          </li>
+          <li className={s.item}>
+            <NavLink to='/settings' className={getNavLinkClass}>
+                <FaCog className={s.icon} /> {/* Иконка */}
+                Settings
+            </NavLink>
           </li>
         </ul>
       </nav>

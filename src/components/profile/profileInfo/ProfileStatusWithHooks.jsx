@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import s from "./style.module.css";
 
-const ProfileStatusWithHooks = ({status, updateStatus}) => {
+const ProfileStatusWithHooks = ({status, updateStatus, isOwner}) => {
     const [editMode, setEditMode] = useState(false);
     const [stateStatus, setStateStatus] = useState(status)
 
@@ -9,7 +10,9 @@ const ProfileStatusWithHooks = ({status, updateStatus}) => {
     }, [status])
 
     const activateMode = () => {
-        setEditMode(true)
+        if (isOwner) {
+            setEditMode(true);
+        }
     }
 
     const deactivateEditMode = () => {
@@ -22,16 +25,29 @@ const ProfileStatusWithHooks = ({status, updateStatus}) => {
     }
 
     return (
-        <div>
+        <div className={s.statusBlock}> {/* Общий контейнер для статуса */}
             {!editMode &&
-            <div>
-                <span onDoubleClick={ activateMode} >{status  || "---------"}</span
+            <div className={s.statusWrapper}>
+                {/* Убираем жирный текст "Status:", просто выводим статус */}
+                <span 
+                    onDoubleClick={activateMode} 
+                    // Используем классы для курсора/стиля при возможности редактирования
+                    className={`${s.statusText} ${isOwner ? s.isOwner : ''}`}
                 >
+                    {status || "Установить статус"}
+                </span>
             </div>
             }
-            {editMode &&
-            <div>
-                <input onBlur={ deactivateEditMode } onChange={ onStatusChange } value={stateStatus} autoFocus={true}  />
+            {editMode && isOwner &&
+            <div className={s.inputWrapper}>
+                <input 
+                    className={s.statusInput} 
+                    onBlur={deactivateEditMode} 
+                    onChange={onStatusChange} 
+                    value={stateStatus} 
+                    autoFocus={true}  
+                    placeholder="Введите ваш статус"
+                />
             </div>
             }
         </div>

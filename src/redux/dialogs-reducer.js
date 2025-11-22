@@ -10,12 +10,12 @@ const initialState = {
         {id: 6, name: 'Egor'}
     ],
     messages: [
-        {id: 1, message: 'Hi'},
-        {id: 2, message: 'How are you?'},
-        {id: 3, message: 'Nice'},
-        {id: 4, message: 'Good'},
-        {id: 5, message: 'Bye'},
-        {id: 6, message: 'Nice too meet you'},
+        {id: 1, senderId: 1, message: 'Hi'},
+        {id: 2, senderId: 1, message: 'How are you?'},
+        {id: 3, senderId: 32658, message: 'Nice'},
+        {id: 4, senderId: 32658, message: 'Good'},
+        {id: 5, senderId: 3, message: 'Bye'},
+        {id: 6, senderId: 32658, message: 'Nice too meet you'},
     ]
 }
 

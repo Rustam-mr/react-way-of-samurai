@@ -1,0 +1,40 @@
+/* --- Стили для отдельного сообщения (Message component) --- */
+
+.messagesList {
+    /* ... (Предыдущие стили messagesList) ... */
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Расстояние между сообщениями */
+}
+
+
+.messageItem {
+    /* Базовый стиль пузыря сообщения (например, от собеседника) */
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 18px; /* Округленные углы как в VK */
+    max-width: 70%; /* Сообщения не растягиваются на всю ширину */
+    font-size: 0.9rem;
+    line-height: 1.3;
+    word-wrap: break-word;
+}
+
+/* Стиль для чужих сообщений (слева, серый фон) */
+.messageItem {
+    background-color: #e1e3e6;
+    color: #2c2c2c;
+    align-self: flex-start; /* Прижимает сообщение влево */
+}
+
+
+/* 
+  Если вы добавите пропс isOwn, можно добавить класс для своих сообщений:
+*/
+
+.ownMessageItem {
+    background-color: #5181b8; /* Синий фон VK */
+    color: white;
+    align-self: flex-end; /* Прижимает сообщение вправо */
+}

@@ -1,26 +1,64 @@
-.page {
-    margin: 5px 0 0 5px;
-    padding: 2px;
-    display: inline-block;
-    border: 1px solid yellow;
-    cursor: pointer;
+/* Основной контейнер пагинатора */
+.paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, sans-serif;
+    color: #4a76a8; /* Фирменный синий цвет ВК */
 }
 
+/* Стиль для отдельного номера страницы */
+.page {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 0 4px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #4a76a8;
+    border-radius: 2px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Эффект при наведении на номер страницы */
+.page:hover {
+    background-color: #e1e8ed; /* Светло-серый фон при наведении */
+}
+
+/* Стиль для активной (выбранной) страницы */
 .selectPage {
     font-weight: bold;
-    border: 1px solid red;;
+    color: #ffffff; /* Белый текст для активной */
+    background-color: #5d8cc3; /* Темнее синий для активной */
+    cursor: default;
 }
 
-.paginator {
-    margin: 10px;
+/* Убираем эффект наведения для активной страницы */
+.selectPage:hover {
+    background-color: #5d8cc3;
 }
 
-.pageNumber {
-    padding: 2px;
-    border: 1px solid grey;
+/* Стиль для кнопок "Предыдущая/Следующая" */
+.navButton {
+    background: none;
+    border: none;
+    color: #4a76a8;
+    padding: 6px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 13px; /* Размер шрифта как в ВК */
+    border-radius: 2px;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.pageNumber.selectedPage {
-    font-weight: bold;
-    border-color: black;
+.navButton:hover {
+    background-color: #e1e8ed;
+}
+
+.navButton:active {
+    background-color: #d1dbe2;
+}
+
+.navButton:focus {
+    outline: none;
 }

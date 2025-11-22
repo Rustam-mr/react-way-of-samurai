@@ -1,7 +1,75 @@
 .postsBlock {
+    margin: 20px;
+    background-color: #ffffff; /* White card background */
+    padding: 20px;
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  }
+  
+  .postsTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 15px;
+  }
+  
+  .newPostContainer {
+    margin-bottom: 20px;
     padding: 10px;
-}
-
-.posts {
-    margin-top: 10px;
-}
+    border-top: 1px solid #e1e3e6; /* Separator line */
+  }
+  
+  .addPostForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between textarea and button */
+  }
+  
+  .formControl {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none; /* Disable manual resize */
+    font-family: inherit;
+    font-size: 0.9rem;
+    min-height: 60px;
+    box-sizing: border-box; /* Ensures padding/border are included in width */
+  }
+  
+  .textarea:focus {
+    outline: none;
+    border-color: #5181b8; /* VK's signature blue focus color */
+  }
+  
+  .error {
+    color: #e64d4d; /* VK style error color */
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+  
+  .addButton {
+    background-color: #5181b8; /* VK's signature blue button color*/
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    /* Align button to the right, common in VK UI */
+    align-self: flex-end; 
+  }
+  
+  .addButton:hover {
+    background-color: #5a8fcf;
+  }
+  
+  .posts {
+    margin-top: 20px;
+  }

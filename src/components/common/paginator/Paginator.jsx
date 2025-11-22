@@ -1,5 +1,6 @@
 import { useState } from "react";
-import styles from "./style.module.css"
+import styles from "./style.module.css" // Используем ваш существующий импорт
+import cn from "classnames";
 
 const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
@@ -17,18 +18,18 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, porti
     return (
         <div className={styles.paginator}>
             { portionNumber > 1 &&
-                <button onClick={ () => { setPortionNumber(portionNumber - 1) }}>Prev</button>
+                <button className={styles.navButton} onClick={ () => { setPortionNumber(portionNumber - 1) }}>&laquo; Предыдущая</button>
             }
 
             {pages.filter(p => {
                 return p >= leftPortionPageNumber && p <= rightPortionPageNumber
             })
                 .map(p => {
-                    return <span key={p} className={`${styles.page} ${currentPage === p && styles.selectPage}`} onClick={e => onPageChanged(p)}>{p}</span>
+                    return <span key={p} className={cn({[styles.selectPage]: currentPage === p}, styles.page) } onClick={e => onPageChanged(p)}>{p}</span>
                 })}
             {
                 portionCount > portionNumber &&
-                <button onClick={ () => setPortionNumber(portionNumber + 1) }>Next</button>
+                <button className={styles.navButton} onClick={ () => setPortionNumber(portionNumber + 1) }>Следующая &raquo;</button>
             }
         </div>
     )

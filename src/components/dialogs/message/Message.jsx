@@ -1,9 +1,12 @@
-import s from "./../style.module.css";
+import s from "./style.module.css";
 
-const Message = ({message}) => {
-    
+const Message = ({message, isOwn}) => {
+    // debugger
     return (
-        <div className={s.dialog}>{message}</div>
+        // Используем класс messageItem для стилизации пузыря сообщения
+        <div className={isOwn ? `${s.ownMessageItem} ${s.messageItem}` : `${s.messageItem}`}>
+            {message}
+        </div>
     );
 }
 

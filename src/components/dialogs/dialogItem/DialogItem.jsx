@@ -1,13 +1,24 @@
 import { NavLink } from "react-router-dom";
-import s from "./../style.module.css";
+import s from "./style.module.css";
+// import defaultAvatar from './images/default-avatar.png'; // Убедитесь, что путь правильный
 
 const DialogItem = ({id, name}) => {
-    let path = "/dialogs/" + id
+    let path = "/dialogs/" + id;
     
     return (
-        <div className={s.dialog + ' ' + s.active}>
-            <NavLink key={id} to={path}>{name}</NavLink>
-        </div>
+        // Используем NavLink с пропсом activeClassName для автоматического добавления класса активности
+        <NavLink 
+            to={path} 
+            className={({ isActive }) => 
+                isActive ? `${s.dialogItem} ${s.activeDialog}` : s.dialogItem
+            }
+        >
+            {/* Имитация аватара */}
+            <div className={s.dialogAvatarPlaceholder}></div>
+            
+            {/* Имя собеседника */}
+            <div className={s.dialogName}>{name}</div>
+        </NavLink>
     );
 }
 

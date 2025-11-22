@@ -1,12 +1,57 @@
-.dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
-}
-
-.dialogsItems {
-    padding: 10px;
-}
-
-.dialogsItems .active {
-    color: gold;
-}
+/* --- Главный контейнер диалогов --- */
+.dialogsWrapper {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    margin: 20px;
+    min-height: 600px; /* Минимальная высота для окна чата */
+  }
+  
+  /* --- Левая колонка: Список диалогов --- */
+  .dialogsItems {
+    flex-basis: 300px; /* Фиксированная ширина списка контактов */
+    border-right: 1px solid #e1e3e6;
+    padding-top: 10px;
+    overflow-y: auto; /* Прокрутка, если диалогов много */
+  }
+  
+  .dialogsListHeader {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #222;
+      padding: 0 15px 10px;
+      border-bottom: 1px solid #e1e3e6;
+      margin-bottom: 10px;
+  }
+  
+  /* --- Правая колонка: Окно сообщений --- */
+  .messagesArea {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Сообщения сверху, форма ввода снизу */
+    position: relative;
+  }
+  
+  .messagesList {
+    padding: 20px;
+    overflow-y: auto; /* Прокрутка сообщений */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: calc(100% - 80px); /* Высота списка минус высота формы ввода */
+  }
+  
+  .messageInputArea {
+    padding: 10px 15px;
+    border-top: 1px solid #e1e3e6;
+    background-color: #f7f8fa; /* Легкий серый фон для области ввода */
+  }
+  
+  
+  /* 
+    Вам также потребуется стилизовать компоненты 
+    DialogItem, Message, и AddMessageForm в их собственных CSS файлах, 
+    чтобы они соответствовали стилю VK.
+  */

@@ -1,56 +1,74 @@
-import styles from "../common/formsControls/style.module.css";
+// Login.jsx или где у вас находится этот компонент
+import commonStyles from "../common/formsControls/style.module.css"; // Переименовал импорт для ясности
 import { Input } from "../common/formsControls/FormsControl";
-import { maxLengthCreator, required } from "../../utils/validators/validators";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form"; 
+import loginStyles from "./style.module.css"; // Импортируем новые стили
 
-const maxLength30 = maxLengthCreator(30);
-
-const LoginForm = ({ onSubmit, error }) => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-
-    const renderField = (label, name, validators, Component, inputProps, text, fieldStyle) => {
-        const validationRules = {};
-        if (validators) {
-            validators.forEach(validator => {
-                if (validator === required) validationRules.required = true;
-            });
-        }
-        
-        return (
-            <div className={fieldStyle}>
-                <Component {...register(name, validationRules)} {...inputProps} />
-                {label && <label>{label}</label>}
-                {text && <span>{text}</span>}
-                {errors[name] && <span className={styles.errorText}>{errors[name].message || `${name} is required`}</span>}
-            </div>
-        );
-    };
+const LoginForm = ({ onSubmit, error, captchaUrl }) => {
+    // ... логика useForm остается прежней
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        mode: "onTouched"
+    });
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}> 
-            {renderField("Email", "email", [required, maxLength30], Input, { type: "email" })}
-            {renderField("Password", "password", [required, maxLength30], Input, { type: "password" })}
-            {renderField(null, "rememberMe", null, Input, { type: "checkbox" }, "remember me", styles.checkbox)}
+        <form onSubmit={handleSubmit(onSubmit)} className={loginStyles.formContainer}> {/* Добавили класс */}
+            <div className={loginStyles.inputGroup}> {/* Добавили класс */}
+                <Input 
+                    {...register("email", { 
+                        required: "Email field is required", 
+                        maxLength: { value: 30, message: "Max length is 30 symbols" } 
+                    })} 
+                    type="email" 
+                    placeholder="Email"
+                    error={errors.email}
+                />
+            </div>
+
+            <div className={loginStyles.inputGroup}> {/* Добавили класс */}
+                 <Input 
+                    {...register("password", { 
+                        required: "Password field is required",
+                        maxLength: { value: 30, message: "Max length is 30 symbols" } 
+                    })} 
+                    type="password" 
+                    placeholder="Password"
+                    error={errors.password}
+                />
+            </div>
+
             
+            <div className={commonStyles.checkbox}>
+                <Input {...register("rememberMe")} type="checkbox" />
+                <span>remember me</span>
+            </div>
+
+            {captchaUrl && <img src={captchaUrl} alt={"Captcha"} />}
+            {captchaUrl && <div className={loginStyles.inputGroup}><Input {...register("captcha", {
+                required: "Captcha field is required",
+                minLength: {value: 1, message: "Min length is 1 symbols"}
+            })} type="text" error={errors.captcha} /></div>}
+                    
             {error &&
-                <div className={styles.formSummaryError}>
+                <div className={commonStyles.formSummaryError}>
                     {error}
                 </div>
             }
             <div>
-                <button type="submit">Login</button>
+                <button type="submit" className={loginStyles.submitButton}>Login</button> {/* Добавили класс */}
             </div>
         </form>
     );
 }
 
-const Login = ({ login, isAuth }) => {
+// ... остальной код компонентов Login и mapStateToProps остается прежним ...
+
+const Login = ({ login, isAuth, error, captchaUrl }) => {
     
-    const onSubmit = (dataForm) => {
-        login(dataForm.email, dataForm.password, dataForm.rememberMe);
+    const onSubmit = (formData) => {
+        login(formData.email, formData.password, formData.rememberMe, formData.captcha);
     };
 
     if (isAuth) {
@@ -58,15 +76,17 @@ const Login = ({ login, isAuth }) => {
     }
 
     return (
-        <div>
-            <h1>Login</h1>
-            <LoginForm onSubmit={onSubmit} /> 
+        <div className={loginStyles.loginPage}> {/* Добавили класс */}
+            <h1 className={loginStyles.title}>Login</h1> {/* Добавили класс */}
+            <LoginForm error={error} onSubmit={onSubmit} captchaUrl={captchaUrl} /> 
         </div>
     );
 }
 
-const mapStateToProps = (state) => ({ 
+const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
+    error: state.auth.error,
+    captchaUrl: state.auth.captchaUrl
 });
 
 export default connect(mapStateToProps, { login })(Login);

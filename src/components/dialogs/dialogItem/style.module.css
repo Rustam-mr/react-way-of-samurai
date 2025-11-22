@@ -1,0 +1,37 @@
+/* --- Стили для элемента списка диалогов (DialogItem) --- */
+
+.dialogItem {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #222; /* Цвет текста по умолчанию */
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.dialogItem:hover {
+    background-color: #f5f5f5; /* Легкое выделение при наведении */
+}
+
+/* Стиль активного (выбранного) диалога */
+.activeDialog {
+    background-color: #e1e3e6; /* Серый фон для активного элемента в стиле VK */
+    font-weight: 500;
+}
+
+/* Заглушка для аватара (если у вас нет реальных аватаров) */
+.dialogAvatarPlaceholder {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #5181b8; /* Синий цвет VK как фон для заглушки аватара */
+    margin-right: 12px;
+}
+
+.dialogName {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Многоточие, если имя слишком длинное */
+}

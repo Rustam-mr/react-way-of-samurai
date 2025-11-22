@@ -1,3 +1,240 @@
-.descriptionBlock {
-    padding: 10px;
+.vkProfileWrapper {
+    background-color: #fff;
+    border-radius: 8px; 
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    margin: 20px;
+    padding: 20px;
 }
+
+.descriptionBlock {
+    display: flex; /* Фото и информация в ряд */
+    gap: 20px;
+}
+
+/* --- Левая колонка (Фото) --- */
+.photoContainer {
+    flex-shrink: 0; 
+    width: 200px; 
+    /* Добавляем Flexbox для вертикального выравнивания */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* Центрируем фото и кнопку горизонтально */
+}
+
+.mainPhoto {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; 
+    object-fit: cover;
+    margin-bottom: 10px; /* Добавляем отступ снизу от фото */
+}
+
+/* Скрытие реального input file */
+.fileInput { 
+    display: none; 
+}
+
+/* Стили для кастомной кнопки/лейбла загрузки файла */
+.fileUploadButton {
+    display: block; 
+    width: 100%; /* Ширина контейнера (200px) */
+    text-align: center;
+    padding: 8px 0;
+    
+    /* Убираем абсолютное позиционирование */
+    position: static; 
+    bottom: auto; left: auto; right: auto;
+    
+    background-color: #e1e3e6; 
+    color: #2c2c2c;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    box-sizing: border-box;
+    /* Убираем анимацию opacity, чтобы кнопка была видна всегда */
+    opacity: 1; 
+}
+
+.fileUploadButton:hover {
+    background-color: #d7dadd;
+}
+
+
+/* --- Правая колонка (Информация) --- */
+.infoColumn {
+    flex-grow: 1; 
+}
+
+.profileDataWrapper {
+    position: relative;
+    padding-right: 80px; /* Оставляем место для кнопки Edit справа */
+}
+
+.fullName {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 0 5px 0;
+    color: #000;
+}
+
+.statusBlock {
+    margin-bottom: 15px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Кнопка Редактировать */
+.editButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #e1e3e6; /* Серый фон как в ВК */
+    color: #2c5e9a; /* Синий текст */
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    opacity: 0; /* Изначально скрыта */
+    transition: opacity 0.3s ease;
+    font-size: 13px;
+}
+
+.profileDataWrapper:hover .editButton {
+    opacity: 1; /* Показываем при наведении */
+}
+
+.editButton:hover {
+    background-color: #d1d3d6;
+}
+
+/* Детали профиля */
+.detailsBlock {
+    border-top: 1px solid #ebecee; /* Разделитель */
+    padding-top: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.detailItem {
+    margin-bottom: 8px;
+}
+
+.detailItem b, .contactsBlock b {
+    color: #6c757d; /* Серый цвет для заголовков */
+    font-weight: normal;
+    display: inline-block;
+    width: 120px; /* Выравнивание */
+}
+
+.contactsBlock {
+    margin-top: 15px;
+}
+
+.contactItem a {
+    color: #2c5e9a; /* Синий цвет ссылок */
+    text-decoration: none;
+}
+
+ul { margin: 0; padding-left: 0; list-style: none; } /* Убираем стандартные маркеры списка */
+
+/* Контейнер формы */
+.profileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Отступы между строками */
+}
+
+/* Каждая строка формы (label + input) */
+.formItem {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    gap: 10px;
+}
+
+/* Заголовки (b) */
+.formLabel {
+    color: #6c757d; /* Серый цвет текста */
+    width: 150px; /* Фиксированная ширина для выравнивания */
+    font-weight: normal;
+}
+
+/* Поля ввода (Input и Textarea) */
+.formControl {
+    /* Стили для Input и Textarea в стиле ВК */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 13px;
+    flex-grow: 1; /* Растягивается на всю оставшуюся ширину */
+    box-sizing: border-box; /* Важно для padding */
+}
+
+.formControl:focus {
+    outline: none;
+    border-color: #2c5e9a; /* Синяя рамка при фокусе */
+}
+
+/* Кнопка "Сохранить" */
+.saveButton {
+    background-color: #4a76a8; /* Фирменный синий цвет ВК */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.saveButton:hover {
+    background-color: #5a85b9;
+}
+
+/* Стили ошибок (если они нужны) */
+.formSummaryError { border: 2px solid red; padding: 5px; color: red; } 
+.errorText { color: red; font-size: 12px; }
+
+.statusBlock {
+    margin: 10px 0;
+    /* Цвет текста статуса в VK обычно серый, пока не активен */
+    color: #6a6a6a; 
+    font-size: 0.9rem;
+}
+
+.statusText {
+    /* Базовый стиль для текста статуса */
+    display: inline-block;
+    padding: 2px 0;
+    min-width: 50px; /* Чтобы пустой статус не схлопывался */
+    cursor: default;
+}
+
+.statusText.isOwner {
+    /* Если это владелец страницы, статус можно редактировать */
+    cursor: pointer; 
+    /* При наведении можно добавить легкое подчеркивание или изменение цвета */
+    /* text-decoration: underline dotted; */
+}
+
+.statusInput {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    /* Фон при редактировании белый */
+    background-color: #fff; 
+}
+
+.statusInput:focus {
+    outline: none;
+    border-color: #5181b8; /* Синий фокус VK */
+}
+
+/* Обертка для поля ввода, чтобы контролировать отступы */
+.inputWrapper {
+    /* Дополнительные стили, если нужны отступы */
+}
+

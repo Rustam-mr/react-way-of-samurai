@@ -1,40 +1,59 @@
 import { NavLink } from "react-router-dom";
-import styles from './style.module.css';
-import userPhoto from '../../assets/images/avatar.png';
+import s from './style.module.css';
+import userPhoto from '../../assets/images/avatar.png'; // Используйте правильный путь к изображению по умолчанию
 
 const User = ({user, follow, unfollow, followingInProgress}) => {
     return (
-        <div>
-            <div>
-                <span>
-                    <div>
+        // Главный контейнер для карточки пользователя
+        <div className={s.userItem}>
+            <div className={s.userInfoWrapper}>
+                
+                {/* Левая часть: Аватар и кнопки подписки */}
+                <div className={s.avatarColumn}>
+                    <div className={s.avatarContainer}>
                         <NavLink to={'/profile/' + user.id}>
-                            <img className={styles.userPhoto} src={user.photos.small != null ? user.photos.small : userPhoto } alt="" />
+                            {/* Используем userPhoto как заглушку, если фото нет */}
+                            <img 
+                                className={s.userAvatar} 
+                                src={user.photos.small != null ? user.photos.small : userPhoto } 
+                                alt="User Avatar" 
+                            />
                         </NavLink>
                     </div>
-                    <div>
+                    <div className={s.followButtonContainer}>
                         {user.followed
-                        ? <button disabled={followingInProgress.some(id => id === user.id)}
+                        ? <button 
+                            className={s.unfollowButton} 
+                            disabled={followingInProgress.some(id => id === user.id)}
                             onClick={() => { 
                                 unfollow(user.id)
-                        }}>Unfollow</button>
-                        : <button disabled={followingInProgress.some(id => id === user.id)}
+                        }}>Отписаться</button>
+                        : <button 
+                            className={s.followButton} 
+                            disabled={followingInProgress.some(id => id === user.id)}
                             onClick={() => { 
                                 follow(user.id)
-                        }}>Follow</button>
+                        }}>Подписаться</button>
                         }
                     </div>
-                </span>
-                <span>
-                    <span>
-                        <div>{user.name}</div>
-                        <div>{user.status ? user.status : <div style={{color: 'yellow', fontSize: 28}}>No status</div>}</div>
-                    </span>
-                    <span>
-                        <div>user.location.country</div>
-                        <div>user.location.city</div>
-                    </span>
-                </span>
+                </div>
+
+                {/* Правая часть: Имя, статус, локация */}
+                <div className={s.detailsColumn}>
+                    <div className={s.nameAndStatus}>
+                        <div className={s.userName}>{user.name}</div>
+                        {/* VK использует серый цвет для статуса, даже если его нет */}
+                        <div className={s.userStatus}>
+                            {user.status ? user.status : "Статус отсутствует"}
+                        </div>
+                    </div>
+                    
+                    <div className={s.location}>
+                        {/* Эти данные недоступны в текущих пропсах, это заглушки */}
+                        <div className={s.locationItem}>{"Страна: (нет данных)"}</div>
+                        <div className={s.locationItem}>{"Город: (нет данных)"}</div>
+                    </div>
+                </div>
             </div>
         </div>
     )

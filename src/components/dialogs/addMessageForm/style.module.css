@@ -1,0 +1,67 @@
+/* --- Стили для формы отправки сообщения (AddMessageForm) --- */
+
+.addMessageForm {
+    display: flex;
+    align-items: flex-end; /* Выравнивает кнопку по низу текстового поля */
+    gap: 10px;
+}
+
+.formControl {
+    flex-grow: 1; /* Поле ввода занимает все доступное пространство */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.messageTextarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Сильно округленные края как в VK */
+    resize: none; /* Запрещаем изменение размера */
+    font-family: inherit;
+    font-size: 0.9rem;
+    min-height: 40px; /* Минимальная высота поля */
+    box-sizing: border-box; 
+    transition: border-color 0.2s;
+}
+
+.messageTextarea:focus {
+    outline: none;
+    border-color: #5181b8; /* Синий фокус VK */
+}
+
+/* Переиспользуем стиль ошибки, который мы определили ранее */
+.error {
+    color: #e64d4d;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    position: absolute; /* Позиционируем ошибку абсолютно под полем */
+    bottom: -20px;
+    left: 14px;
+}
+
+.sendButtonContainer {
+    /* Контейнер для кнопки */
+}
+
+.sendButton {
+    background-color: #5181b8; /* Синий цвет VK */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Округленная кнопка */
+    cursor: pointer;
+    font-weight: 500;
+    height: 40px; /* Делаем кнопку такой же высоты как textarea */
+    transition: background-color 0.2s;
+}
+
+.sendButton:hover {
+    background-color: #5a8fcf;
+}
+
+.sendButton:disabled {
+    background-color: #aeb7c2;
+    cursor: not-allowed;
+}

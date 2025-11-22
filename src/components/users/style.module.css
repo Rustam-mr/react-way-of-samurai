@@ -1,5 +1,115 @@
-.userPhoto {
-    width: 100px;
-    height: 100px;
+.userItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px; /* Добавляем отступ, если в Users.jsx нет gap */
 }
+
+.userInfoWrapper {
+    display: flex;
+    width: 100%;
+}
+
+.avatarColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+    width: 80px; /* Фиксированная ширина для аватара и кнопки */
+}
+
+.avatarContainer {
+    margin-bottom: 10px;
+}
+
+.userAvatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.detailsColumn {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: flex-start;
+}
+
+.nameAndStatus {
+    display: flex;
+    flex-direction: column;
+}
+
+.userName {
+    font-weight: 600;
+    color: #222;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.userStatus {
+    font-size: 0.8rem;
+    color: #818c99; /* Серый цвет VK */
+}
+
+.location {
+    font-size: 0.8rem;
+    color: #818c99;
+    text-align: right;
+}
+
+.locationItem {
+    /* Стиль для отдельной строки локации */
+}
+
+/* --- Стили кнопок (VK Blue theme) --- */
+
+.followButton, .unfollowButton {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+    font-size: 0.8rem;
+    box-sizing: border-box;
+    transition: background-color 0.2s;
+}
+
+.followButton {
+    background-color: #5181b8; /* Синий VK */
+    color: white;
+}
+
+.followButton:hover {
+    background-color: #5a8fcf;
+}
+
+.followButton:disabled {
+    background-color: #aeb7c2;
+    cursor: not-allowed;
+}
+
+.unfollowButton {
+    background-color: #e1e3e6; /* Серый VK */
+    color: #222;
+}
+
+.unfollowButton:hover {
+    background-color: #d7dadd;
+}
+
+.unfollowButton:disabled {
+    background-color: #e1e3e6;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
 
